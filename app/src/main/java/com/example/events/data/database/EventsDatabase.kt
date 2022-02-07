@@ -1,10 +1,10 @@
-package com.example.events.database
+package com.example.events.data.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.events.constants.Constants.DATABASE_NAME
+import com.example.events.ui.constants.Constants.DATABASE_NAME
 import com.example.events.data.model.Event
 
 @Database(entities = [Event::class], version = 1, exportSchema = false)

@@ -2,7 +2,7 @@ package com.example.events.ui.extensions
 
 import android.content.Context
 import com.example.events.R
-import com.example.events.constants.Constants.DATE_FORMAT
+import com.example.events.ui.constants.Constants.DATE_FORMAT
 import java.text.SimpleDateFormat
 import java.util.*
 

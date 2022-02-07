@@ -8,7 +8,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.events.adapter.EventsFavoritesAdapter
+import com.example.events.ui.adapter.EventsFavoritesAdapter
 import com.example.events.databinding.FragmentFavoritesBinding
 import com.example.events.ui.extensions.hideComponent
 import com.example.events.ui.extensions.showComponent

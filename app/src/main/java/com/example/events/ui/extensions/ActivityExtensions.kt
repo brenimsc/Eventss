@@ -5,7 +5,7 @@ import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Build
 import com.example.events.ui.DetailsActivity
-import com.example.events.constants.Constants.ID_EVENT
+import com.example.events.ui.constants.Constants.ID_EVENT
 
 fun Activity.startDetail(id: Int) {
 

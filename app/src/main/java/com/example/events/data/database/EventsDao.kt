@@ -1,4 +1,4 @@
-package com.example.events.database
+package com.example.events.data.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*

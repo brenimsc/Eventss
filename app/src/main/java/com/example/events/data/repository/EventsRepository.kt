@@ -1,7 +1,7 @@
 package com.example.events.data.repository
 
 import androidx.lifecycle.LiveData
-import com.example.events.database.EventsDao
+import com.example.events.data.database.EventsDao
 import com.example.events.data.service.EventsApiService
 import com.example.events.data.model.Event
 import kotlinx.coroutines.flow.FlowCollector

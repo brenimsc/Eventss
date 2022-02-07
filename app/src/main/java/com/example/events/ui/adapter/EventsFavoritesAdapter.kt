@@ -1,4 +1,4 @@
-package com.example.events.adapter
+package com.example.events.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

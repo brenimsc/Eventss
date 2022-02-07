@@ -2,7 +2,7 @@ package com.example.events.data.di
 
 import android.content.SharedPreferences
 import android.preference.PreferenceManager
-import com.example.events.database.EventsDatabase
+import com.example.events.data.database.EventsDatabase
 import com.example.events.data.repository.DetailsRepository
 import com.example.events.data.repository.EventsRepository
 import com.example.events.data.service.EventsApiService

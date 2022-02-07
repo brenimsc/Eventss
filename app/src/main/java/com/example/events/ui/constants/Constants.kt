@@ -1,4 +1,4 @@
-package com.example.events.constants
+package com.example.events.ui.constants
 
 object Constants {
     const val KEY_USER = "user"

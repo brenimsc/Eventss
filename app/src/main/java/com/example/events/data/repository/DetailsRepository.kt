@@ -2,8 +2,8 @@ package com.example.events.data.repository
 
 import android.content.SharedPreferences
 import androidx.core.content.edit
-import com.example.events.constants.Constants.KEY_USER
-import com.example.events.database.EventsDao
+import com.example.events.ui.constants.Constants.KEY_USER
+import com.example.events.data.database.EventsDao
 import com.example.events.data.service.EventsApiService
 import com.example.events.data.model.Checkin
 import com.example.events.data.model.Event

@@ -10,7 +10,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.events.adapter.EventsAdapter
+import com.example.events.ui.adapter.EventsAdapter
 import com.example.events.databinding.FragmentEventsBinding
 import com.example.events.ui.extensions.*
 import com.example.events.data.model.Event

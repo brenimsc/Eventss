@@ -19,7 +19,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doAfterTextChanged
 import com.bumptech.glide.Glide
 import com.example.events.R
-import com.example.events.constants.Constants.ID_EVENT
+import com.example.events.ui.constants.Constants.ID_EVENT
 import com.example.events.databinding.ActivityDetailsBinding
 import com.example.events.ui.dialog.DialogSucessError
 import com.example.events.ui.extensions.*
