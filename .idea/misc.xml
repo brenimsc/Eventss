@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.10833333333333334" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/backgroud_buttom.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable/backgroud_img_green.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/backgroud_img_red.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/backgroud_linear_layout.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/background_text_checkin.xml" value="0.135" />
+        <entry key="app/src/main/res/drawable/ic_baseline_attach_money_24.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/ic_calendar.xml" value="0.1145" />
+        <entry key="app/src/main/res/drawable/ic_check_24.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_check_circle.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/ic_checkin_24.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_checkin_image.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/ic_email_24.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_error.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_error_black_24dp.xml" value="0.18" />
+        <entry key="app/src/main/res/drawable/ic_event_24.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_favorite_24.xml" value="0.202" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_location_24.xml" value="0.21" />
+        <entry key="app/src/main/res/drawable/ic_share_24.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/ic_user_24.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/image_check.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/image_events.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/image_favorites.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/img_check_outline.xml" value="0.238" />
+        <entry key="app/src/main/res/drawable/loading_animation.xml" value="0.257" />
+        <entry key="app/src/main/res/drawable/loading_img.xml" value="0.205" />
+        <entry key="app/src/main/res/font-v26/nunito.xml" value="0.1" />
+        <entry key="app/src/main/res/font/nunito.xml" value="0.26979166666666665" />
+        <entry key="app/src/main/res/layout-v21/teste.xml" value="0.3421875" />
+        <entry key="app/src/main/res/layout-v23/item_events_favorites.xml" value="0.2265625" />
+        <entry key="app/src/main/res/layout/activity_checkin_email.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_details.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.18614130434782608" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_splash2.xml" value="0.334375" />
+        <entry key="app/src/main/res/layout/checkins_empty.xml" value="0.2911458333333333" />
+        <entry key="app/src/main/res/layout/dialog_sucess_error_checkin.xml" value="0.32447916666666665" />
+        <entry key="app/src/main/res/layout/events_empty.xml" value="0.2911458333333333" />
+        <entry key="app/src/main/res/layout/events_error.xml" value="0.334375" />
+        <entry key="app/src/main/res/layout/favorites_empty.xml" value="0.2911458333333333" />
+        <entry key="app/src/main/res/layout/fragment_checkins.xml" value="0.21041666666666667" />
+        <entry key="app/src/main/res/layout/fragment_events.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_favorites.xml" value="0.21041666666666667" />
+        <entry key="app/src/main/res/layout/item_events.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/item_events_checkin.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_events_favorites.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/loading.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/teste.xml" value="0.3463541666666667" />
+        <entry key="app/src/main/res/menu/bottom_navigation_menu.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/menu/top_app_bar.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

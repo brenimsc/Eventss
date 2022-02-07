@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Events</string>
+    <string name="events">Eventos</string>
+    <string name="favorites">Favoritos</string>
+    <string name="checkin">Checkins</string>
+    <string name="content_description_favorite">Favorito</string>
+    <string name="share">Compartilhar</string>
+    <string name="content_description_share">compartilhar</string>
+    <string name="check_in">Check-in</string>
+    <string name="check_in_realizado">Check-in realizado</string>
+    <string name="fazerCheckin">Fazer Check-in</string>
+    <string name="priceCheckin">R$ %1$.2f</string>
+    <string name="name">Nome</string>
+    <string name="email">Email</string>
+    <string name="avancar">Avançar</string>
+    <string name="campoObrigatorio">Campo obrigatório</string>
+    <string name="emailIncorreto">Digite um email válido</string>
+    <string name="ok">Ok</string>
+    <string name="sucesso">Sucesso!</string>
+    <string name="checkin_realizado">Parabens! Check-in realizado com sucesso! \n Aguardamos você no evento!</string>
+    <string name="oops">Oops!</string>
+    <string name="algp_deu_errado">Algo deu errado \ntente novamente mais tarde</string>
+    <string name="date_detail">%1$sh</string>
+    <string name="carregando">Carregando...</string>
+    <string name="recarregar">Recarregar</string>
+    <string name="description_event">Descrição do evento</string>
+    <string name="fazer_chekin_com_dados_abaixo">Deseja fazer o Check-in com os dados abaixo?</string>
+    <string name="aqui_ficam_os_eventos_que_voc_fez_check_in">Aqui ficam os eventos que você fez check-in.</string>
+    <string name="checkin_dos_eventos">Faça check-in dos eventos que você estará</string>
+    <string name="eventos_ficam_aqui">Todos os eventos ficam aqui.</string>
+    <string name="recarregue_para_novos_eventos">Recarregue a página para encontrar novos eventos</string>
+    <string name="ops_algo_deu_errado">Oops! Algo deu errado</string>
+    <string name="verifique_sinal_de_internet">Verique o sinal de internet ou tente novamente mais tarde</string>
+    <string name="nao_ha_favoritos">Não há nenhum favorito</string>
+    <string name="adicionar_evento_favoritos">Para adicionar um evento aos favoritos, clique no coração do evento desejado</string>
+    <string name="evento">Evento</string>
+
+</resources>
