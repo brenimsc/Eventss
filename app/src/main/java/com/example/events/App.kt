@@ -1,10 +1,10 @@
 package com.example.events
 
 import android.app.Application
-import com.example.events.di.dataSource
-import com.example.events.di.moduleNetwork
-import com.example.events.di.repoModule
-import com.example.events.di.viewModels
+import com.example.events.data.di.dataSource
+import com.example.events.data.di.moduleNetwork
+import com.example.events.data.di.repoModule
+import com.example.events.data.di.viewModels
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 

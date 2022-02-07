@@ -2,13 +2,13 @@ package com.example.events.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import com.example.events.R
 import com.example.events.databinding.ActivityMainBinding
-import com.example.events.viewmodel.EventsViewModel
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import com.example.events.ui.fragment.FragmentCheckins
+import com.example.events.ui.fragment.FragmentEvents
+import com.example.events.ui.fragment.FragmentFavorites
+import com.example.events.ui.viewmodel.EventsViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {

@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Events"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".SplashActivity"
+            android:name=".ui.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,7 +26,7 @@
             android:name=".ui.MainActivity"
             android:exported="true" />
         <activity
-            android:name=".DetailsActivity"
+            android:name=".ui.DetailsActivity"
             android:exported="true" />
     </application>
 

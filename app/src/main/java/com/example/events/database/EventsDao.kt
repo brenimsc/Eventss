@@ -2,7 +2,7 @@ package com.example.events.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.events.model.Event
+import com.example.events.data.model.Event
 
 @Dao
 interface EventsDao {
