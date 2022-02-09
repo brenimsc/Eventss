@@ -1,5 +1,6 @@
 package com.example.events.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -12,12 +13,14 @@ import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
-class EventsViewModel(val repository: EventsRepository) : ViewModel() {
+class EventsViewModel(private val repository: EventsRepository) : ViewModel() {
 
     private val _currentStep = MutableLiveData<Int>().apply {
         value = 0
     }
     val currentStep: LiveData<Int> = _currentStep
+
+    //esse currenStep eu uso pra controlar para troca de fragments.
 
     val listCheckins = repository.getListCheckins()
 
@@ -64,6 +67,8 @@ class EventsViewModel(val repository: EventsRepository) : ViewModel() {
                     hideDialog()
                 }
                 .collect {
+                    Log.e("TESTE", it.toString())
+
                     hideDialog()
                     when (it) {
                         is Exception -> {

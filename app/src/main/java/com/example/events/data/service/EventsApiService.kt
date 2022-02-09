@@ -10,13 +10,13 @@ import retrofit2.http.Path
 
 interface EventsApiService {
 
-    @GET("events")
+    @GET("/api/events")
     suspend fun listEvents() : Response<List<Event>>
 
-    @GET("events/{id}")
+    @GET("/api/events/{id}")
     suspend fun getEvent(@Path("id") id: Int): Event
 
-    @POST("checkin")
+    @POST("/api/checkin")
     suspend fun doCheckin(@Body checkin: Checkin)
 
 }

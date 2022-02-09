@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         val fragmentFavorites = FragmentFavorites()
         val fragmentCheckins = FragmentCheckins()
 
-
         binding.bottomNavigation.setOnItemSelectedListener { item ->
             when(item.itemId) {
                 R.id.id_events -> {

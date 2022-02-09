@@ -1,5 +1,6 @@
 package com.example.events.data.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.events.data.database.EventsDao
 import com.example.events.data.service.EventsApiService
