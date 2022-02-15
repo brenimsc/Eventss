@@ -1,19 +1,20 @@
 package com.example.events.ui.viewmodel
 
-import android.util.Log
+import android.os.RemoteException
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.events.data.model.Event
-import com.example.events.data.repository.EventsRepository
+import com.example.events.data.model.State
+import com.example.events.data.repository.EventsRepositoryInterface
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
-class EventsViewModel(private val repository: EventsRepository) : ViewModel() {
+class EventsViewModel(private val repository: EventsRepositoryInterface) : ViewModel() {
 
     private val _currentStep = MutableLiveData<Int>().apply {
         value = 0
@@ -24,16 +25,21 @@ class EventsViewModel(private val repository: EventsRepository) : ViewModel() {
 
     val listCheckins = repository.getListCheckins()
 
-    private val _listEvents = MutableLiveData<List<Event>>()
-    val listEvents: LiveData<List<Event>> get() = _listEvents
-
-    private val _error = MutableLiveData<Boolean>()
-    val error: LiveData<Boolean> get() = _error
+    private val _listNews = MutableLiveData<State<List<Event>>>()
+    val listNews: LiveData<State<List<Event>>> get() = _listNews
 
     private val _loading = MutableLiveData<Boolean>()
     val loading: LiveData<Boolean> get() = _loading
 
     val listFavorites = repository.getFavorites()
+
+    private val _snackbar = MutableLiveData<String?>(null)
+    val snackbar: LiveData<String?> get() = _snackbar
+
+    fun onSnackBarShow() {
+        _snackbar.value = null
+    }
+
 
     fun goFragmentEvents() {
         _currentStep.value = 0
@@ -58,32 +64,28 @@ class EventsViewModel(private val repository: EventsRepository) : ViewModel() {
             repository.getListEvents()
                 .onStart {
                     if (error) {
-                        _loading.postValue(true) //para mostrar o dialog apenas quando for recarregar a pagina e nao quando mudar de fragment
-                        delay(500)
+                        //para mostrar o dialog apenas quando for recarregar a pagina e nao quando mudar de fragment
+                        _listNews.postValue(State.Loading)
+                        delay(300)
                     }
                 }
                 .catch {
-                    _error.postValue(true)
-                    hideDialog()
+                    val exception = RemoteException(it.message)
+                    _snackbar.value = it.message
+                    _listNews.postValue(State.Error(exception))
                 }
                 .collect {
-                    Log.e("TESTE", it.toString())
-
-                    hideDialog()
-                    when (it) {
-                        is Exception -> {
-                            _error.postValue(true)
-                            return@collect
-                        }
-                    }
-                    _error.postValue(false)
-                    _listEvents.postValue(it as List<Event>?)
+                    _listNews.postValue(State.Success(it))
                 }
         }
     }
 
-    private fun hideDialog() {
+    fun hideDialog() {
         _loading.postValue(false)
+    }
+
+    fun showDialog() {
+        _loading.postValue(true)
     }
 
 

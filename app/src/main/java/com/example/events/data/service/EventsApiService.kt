@@ -11,7 +11,7 @@ import retrofit2.http.Path
 interface EventsApiService {
 
     @GET("/api/events")
-    suspend fun listEvents() : Response<List<Event>>
+    suspend fun listEvents() : List<Event>?
 
     @GET("/api/events/{id}")
     suspend fun getEvent(@Path("id") id: Int): Event

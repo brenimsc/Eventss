@@ -6,7 +6,9 @@ import android.os.Build
 import android.preference.PreferenceManager
 import com.example.events.data.database.EventsDatabase
 import com.example.events.data.repository.DetailsRepository
+import com.example.events.data.repository.DetailsRepositoryInterface
 import com.example.events.data.repository.EventsRepository
+import com.example.events.data.repository.EventsRepositoryInterface
 import com.example.events.data.service.EventsApiService
 import com.example.events.ui.viewmodel.DetailsActivityViewModel
 import com.example.events.ui.viewmodel.EventsViewModel
@@ -49,8 +51,8 @@ val viewModels = module {
 }
 
 val repoModule = module {
-    single { EventsRepository(get(), get()) }
-    single { DetailsRepository(get(), get(), get()) }
+    single<EventsRepositoryInterface> { EventsRepository(get(), get()) }
+    single<DetailsRepositoryInterface> { DetailsRepository(get(), get(), get()) }
 }
 
 private inline fun <reified T> createService(

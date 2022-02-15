@@ -10,11 +10,13 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.events.ui.adapter.EventsAdapter
-import com.example.events.databinding.FragmentEventsBinding
-import com.example.events.ui.extensions.*
 import com.example.events.data.model.Event
+import com.example.events.data.model.State
+import com.example.events.databinding.FragmentEventsBinding
+import com.example.events.ui.adapter.EventsAdapter
+import com.example.events.ui.extensions.*
 import com.example.events.ui.viewmodel.EventsViewModel
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class FragmentEvents : Fragment() {
@@ -48,7 +50,7 @@ class FragmentEvents : Fragment() {
         setupAdapter()
         showProgressDialog()
         observeLoading()
-        observeError()
+        observeSnackbar()
         observeListEvents()
         getEvents()
     }
@@ -67,20 +69,36 @@ class FragmentEvents : Fragment() {
         }
     }
 
-    private fun observeError() {
-        viewModel.error.observe(viewLifecycleOwner) { error ->
-            if (error) {
-                showLayoutError()
-            } else {
-                hideLayoutError()
+    private fun observeListEvents() {
+
+        viewModel.listNews.observe(viewLifecycleOwner) {
+            when (it) {
+                State.Loading -> {
+                    hideLayoutError()
+                    viewModel.showDialog()
+                }
+
+                is State.Error -> {
+                    viewModel.hideDialog()
+                    showLayoutError()
+                }
+
+                is State.Success -> {
+                    viewModel.hideDialog()
+                    hideLayoutError()
+                    attListEvents(it.result)
+                }
+
             }
         }
     }
 
-    private fun observeListEvents() {
-        viewModel.listEvents.observe(viewLifecycleOwner) { list ->
-            hideProgressDialog()
-            attListEvents(list)
+    private fun observeSnackbar() {
+        viewModel.snackbar.observe(viewLifecycleOwner) {
+            it?.let { error ->
+                Snackbar.make(binding.root, error, Snackbar.LENGTH_SHORT).show()
+                viewModel.onSnackBarShow()
+            }
         }
     }
 

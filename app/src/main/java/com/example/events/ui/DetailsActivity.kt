@@ -19,17 +19,19 @@ import androidx.core.widget.NestedScrollView
 import androidx.core.widget.doAfterTextChanged
 import com.bumptech.glide.Glide
 import com.example.events.R
-import com.example.events.ui.constants.Constants.ID_EVENT
-import com.example.events.databinding.ActivityDetailsBinding
-import com.example.events.ui.dialog.DialogSucessError
-import com.example.events.ui.extensions.*
 import com.example.events.data.model.Checkin
 import com.example.events.data.model.Event
+import com.example.events.data.model.State
 import com.example.events.data.model.User
+import com.example.events.databinding.ActivityDetailsBinding
+import com.example.events.ui.constants.Constants.ID_EVENT
+import com.example.events.ui.dialog.DialogSucessError
+import com.example.events.ui.extensions.*
 import com.example.events.ui.utils.Transformer
 import com.example.events.ui.viewmodel.DetailsActivityViewModel
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -75,9 +77,9 @@ class DetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
         setupViews()
         observeUser()
+        observeSnackbar()
         observeEvent()
         observeSucessCheckin()
-        observeError()
         observeLoading()
         getUser()
         getEvent()
@@ -104,16 +106,6 @@ class DetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun observeError() {
-        viewModel.error.observe(this) { error ->
-            if (error) {
-                showLayoutError()
-            } else {
-                hideLayoutError()
-            }
-        }
-    }
-
     private fun observeSucessCheckin() {
         viewModel.sucessCheckin.observe(this) { sucees ->
             if (sucees) {
@@ -127,38 +119,69 @@ class DetailsActivity : AppCompatActivity() {
     }
 
     private fun observeEvent() {
-        viewModel.event.observe(this) { event ->
-            this.event = event
-            titleEvent.text = event.title
-            description.text = event.description
-            price.text = getString(R.string.priceCheckin, event.price)
-            dateEvent.text = event.date.formateDate(this)
-            Glide.with(this)
-                .load(event.image)
-                .placeholder(R.drawable.loading_animation)
-                .error(R.drawable.img_sem_foto)
-                .into(image)
 
-            Transformer.getLocation(this, event.latitude, event.longitude) { street, _ ->
-                local.text = street
+
+        viewModel.event.observe(this) {
+            when (it) {
+                State.Loading -> {
+                    hideLayoutError()
+                    viewModel.showDialog()
+                }
+
+                is State.Error -> {
+                    viewModel.hideDialog()
+                    showLayoutError()
+                }
+
+                is State.Success -> {
+                    viewModel.hideDialog()
+                    hideLayoutError()
+                    setupInfo(it.result)
+                }
+
             }
+        }
+    }
 
-            topAppBar.menu.findItem(R.id.favorite)?.let {
-                alterColorFavorites(it)
+    private fun observeSnackbar() {
+        viewModel.snackbar.observe(this) {
+            it?.let { error ->
+                Snackbar.make(binding.root, error, Snackbar.LENGTH_SHORT).show()
+                viewModel.onSnackBarShow()
             }
+        }
+    }
 
-            if (event.checkin) {
-                hideCheckinShowMark()
-            } else {
-                layoutCheckin.showComponent()
-            }
+    private fun setupInfo(event: Event) {
+        this.event = event
+        titleEvent.text = event.title
+        description.text = event.description
+        price.text = getString(R.string.priceCheckin, event.price)
+        dateEvent.text = event.date.formateDate(this)
+        Glide.with(this)
+            .load(event.image)
+            .placeholder(R.drawable.loading_animation)
+            .error(R.drawable.img_sem_foto)
+            .into(image)
 
-            cardButtonAvancar.setOnClickListener {
-                if (setupErrorValidation()) return@setOnClickListener
-                doCheckin()
-                saveUser()
-            }
+        Transformer.getLocation(this, event.latitude, event.longitude) { street, _ ->
+            local.text = street
+        }
 
+        topAppBar.menu.findItem(R.id.favorite)?.let {
+            alterColorFavorites(it)
+        }
+
+        if (event.checkin) {
+            hideCheckinShowMark()
+        } else {
+            layoutCheckin.showComponent()
+        }
+
+        cardButtonAvancar.setOnClickListener {
+            if (setupErrorValidation()) return@setOnClickListener
+            doCheckin()
+            saveUser()
         }
     }
 
@@ -245,7 +268,9 @@ class DetailsActivity : AppCompatActivity() {
     private fun hideLayoutError() {
         layoutPrincipal.showComponent()
         layoutError.hideComponent()
-        if (this.event.checkin) layoutCheckin.showComponent() else layoutCheckin.hideComponent()
+        if (this::event.isInitialized) {
+            if (this.event.checkin) layoutCheckin.showComponent() else layoutCheckin.hideComponent()
+        }
     }
 
     private fun setupViews() {
