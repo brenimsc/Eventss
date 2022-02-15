@@ -1,6 +1,6 @@
 # Aplicativo Events
 
-<p align="center" > Esse projeto foi desenvolvido mediante um desafio Sicredi. Nele foram utilizadas algumas ferramentas do android Jetpack como LiveData, Room, Material Design Components, e etc. O Aplicativo tem suporte a partir da API 19 até a mais recente. <p>
+<p align="center" > Esse projeto foi desenvolvido mediante um desafio. Nele foram utilizadas algumas ferramentas do android Jetpack como LiveData, Room, Material Design Components, e etc. O Aplicativo tem suporte a partir da API 19 até a mais recente. <p>
 
 ### Features
 
